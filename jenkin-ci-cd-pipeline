@@ -1,0 +1,15 @@
+pipeline {
+agent any
+stages {
+ stage('Test Automation') {
+  steps {
+   sh 'python validation_script.py'
+  }
+ }
+ stage('Deploy Config') {
+  steps {
+   sh 'ansible-playbook deploy.yml'
+  }
+ }
+}
+}
